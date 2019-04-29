@@ -24,7 +24,7 @@
       <ul>
         <li
           v-for="(data, i) in json"
-          :class="activeClass(i)"
+          :class="`${activeClass(i)} ${getClassName('item')}`"
         >
           <a
             href="#"
