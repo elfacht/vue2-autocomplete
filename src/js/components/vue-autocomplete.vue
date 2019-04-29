@@ -34,7 +34,7 @@
             <div v-if="onShouldRenderChild" v-html="onShouldRenderChild(data)"></div>
             <div v-if="!onShouldRenderChild">
               <b class="autocomplete-anchor-text">{{ deepValue(data, anchor) }}</b>
-              <span class="autocomplete-anchor-label">{{ deepValue(data, label) }}</span>
+              <span :class="`autocomplete-anchor-label ${deepValue(data, labelType)}`">{{ deepValue(data, label) }}</span>
             </div>
           </a>
         </li>
@@ -92,6 +92,11 @@
       anchor: {
         type: String,
         required: true
+      },
+
+      // Adds CSS class to label
+      labelType: {
+        type: String
       },
 
       // Label of list

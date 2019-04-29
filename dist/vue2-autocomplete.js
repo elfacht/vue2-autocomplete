@@ -2,7 +2,7 @@
  * Copyright (c) 2016 Naufal Rabbani (http://github.com/BosNaufal),
  * ,Licensed Under MIT (http://opensource.org/licenses/MIT),
  * ,
- * ,Vue 2 Autocomplete @ Version 0.2.1,
+ * ,Vue 2 Autocomplete @ Version 0.2.2,
  * 
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -233,6 +233,11 @@ if (false) {(function () {
     anchor: {
       type: String,
       required: true
+    },
+
+    // Adds CSS class to label
+    labelType: {
+      type: String
     },
 
     // Label of list
@@ -701,7 +706,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     class: ((_vm.getClassName('list')) + " autocomplete autocomplete-list")
   }, [_c('ul', _vm._l((_vm.json), function(data, i) {
     return _c('li', {
-      class: _vm.activeClass(i)
+      class: ((_vm.activeClass(i)) + " " + (_vm.getClassName('item')))
     }, [_c('a', {
       attrs: {
         "href": "#"
@@ -722,7 +727,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }) : _vm._e(), _vm._v(" "), (!_vm.onShouldRenderChild) ? _c('div', [_c('b', {
       staticClass: "autocomplete-anchor-text"
     }, [_vm._v(_vm._s(_vm.deepValue(data, _vm.anchor)))]), _vm._v(" "), _c('span', {
-      staticClass: "autocomplete-anchor-label"
+      class: ("autocomplete-anchor-label " + (_vm.deepValue(data, _vm.labelType)))
     }, [_vm._v(_vm._s(_vm.deepValue(data, _vm.label)))])]) : _vm._e()])])
   }))])])
 }
